@@ -14,10 +14,5 @@
     <setting name="enable_app_engine_apis" value="true"/>
   </beta-settings>
 
-  <!--
-  <env-variables>
-    <env-var name="DATASTORE_HOST" value="foo" />
-  </env-variables>
-  -->
 
 </appengine-web-app>
