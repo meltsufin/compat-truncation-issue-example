@@ -28,7 +28,8 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <version>compat-buf-warn5</version>
+          <version>gzip1</version>
+          <stopPreviousVersion>true</stopPreviousVersion>
         </configuration>
       </plugin>
     </plugins>
