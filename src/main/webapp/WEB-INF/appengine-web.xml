@@ -14,5 +14,9 @@
     <setting name="enable_app_engine_apis" value="true"/>
   </beta-settings>
 
+  <resources>
+    <memory-gb>4</memory-gb>
+  </resources>
+
 
 </appengine-web-app>

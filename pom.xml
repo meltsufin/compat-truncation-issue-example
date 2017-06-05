@@ -19,6 +19,12 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>compat-truncation-issue-example</finalName>
@@ -28,7 +34,7 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <version>gzip1</version>
+          <version>gzip5</version>
           <stopPreviousVersion>true</stopPreviousVersion>
         </configuration>
       </plugin>
