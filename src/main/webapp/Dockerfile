@@ -1,6 +1,6 @@
 #FROM gcr.io/google_appengine/jetty9-compat:githubheadasync
 
-FROM gcr.io/java-runtime-test/jetty9-compat:gzip
+FROM gcr.io/java-runtime-test/jetty9-compat:trace
 
 ADD . $JETTY_BASE/webapps/root/
 

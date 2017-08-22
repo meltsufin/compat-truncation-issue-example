@@ -5,6 +5,9 @@
   <manual-scaling>
     <instances>1</instances>
   </manual-scaling>
+  <health-check>
+    <enable-health-check>false</enable-health-check>
+  </health-check>
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
   </system-properties>
@@ -18,5 +21,9 @@
     <memory-gb>4</memory-gb>
   </resources>
 
+  <env-variables>
+    <env-var name="SHUTDOWN_LOGGING_THREAD_DUMP" value="true" />
+    <env-var name="SHUTDOWN_LOGGING_HEAP_INFO" value="true" />
+  </env-variables>
 
 </appengine-web-app>
