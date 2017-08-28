@@ -5,11 +5,9 @@ FROM  gcr.io/java-runtime-test/jetty9-compat:100-work-1000-queue
 
 ADD . $JETTY_BASE/webapps/root/
 
-#WORKDIR $JETTY_BASE
-#RUN java -jar $JETTY_HOME/start.jar --approve-all-licenses --add-to-startd=gzip
+#RUN rm -f /var/lib/jetty/webapps/root/WEB-INF/lib/appengine-api-1.0-sdk-*
+#RUN rm -f /var/lib/jetty/webapps/root/WEB-INF/lib/appengine-dependencies-*
 #
-#RUN sed -i 's/^\([a-zA-Z\.]*=\).*/#\1(see gae.ini)/' start.d/server.ini \
-# && java -jar $JETTY_HOME/start.jar --dry-run \
-#  | sed 's/^.*java /exec & ${JAVA_OPTS} /' > jetty_cmd.sh \
-# && chown -R jetty:jetty $JETTY_BASE \
-# && chmod +x $JETTY_BASE/jetty_run.sh
+#RUN apt-get update
+#RUN apt-get -y remove openjdk-8-jre openjdk-8-jre-headless ca-certificates-java
+#RUN apt-get -y install -t jessie-backports openjdk-8-jdk-headless ca-certificates-java

@@ -41,7 +41,11 @@
       <artifactId>guava-jdk5</artifactId>
       <version>13.0</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.google.inject.extensions</groupId>
+      <artifactId>guice-servlet</artifactId>
+      <version>4.1.0</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>compat-truncation-issue-example</finalName>
@@ -51,9 +55,14 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <version>qos</version>
+          <version>qos3</version>
           <stopPreviousVersion>true</stopPreviousVersion>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.8.v20160314</version>
       </plugin>
     </plugins>
   </build>

@@ -5,36 +5,35 @@
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>example.HelloServlet</servlet-class>
-  </servlet>
+  <!--<servlet>-->
+    <!--<servlet-name>hello</servlet-name>-->
+    <!--<servlet-class>example.HelloServlet</servlet-class>-->
+  <!--</servlet>-->
 
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>hello</servlet-name>-->
+    <!--<url-pattern>/hello</url-pattern>-->
+  <!--</servlet-mapping>-->
 
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/_ah/health</url-pattern>
-  </servlet-mapping>
-
+  <!--<servlet-mapping>-->
+    <!--<servlet-name>hello</servlet-name>-->
+    <!--<url-pattern>/_ah/health</url-pattern>-->
+  <!--</servlet-mapping>-->
 
   <filter>
     <filter-name>QoSFilter</filter-name>
     <filter-class>org.eclipse.jetty.servlets.QoSFilter</filter-class>
     <init-param>
       <param-name>maxRequests</param-name>
-      <param-value>1</param-value>
+      <param-value>2</param-value>
     </init-param>
     <init-param>
       <param-name>suspendMs</param-name>
-      <param-value>1</param-value>
+      <param-value>5000</param-value>
     </init-param>
     <!--<init-param>-->
-      <!--<param-name>waitMs</param-name>-->
-      <!--<param-value>0</param-value>-->
+    <!--<param-name>waitMs</param-name>-->
+    <!--<param-value>0</param-value>-->
     <!--</init-param>-->
     <async-supported>true</async-supported>
   </filter>
@@ -44,6 +43,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <filter>
+    <filter-name>guiceFilter</filter-name>
+    <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>guiceFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+
+  <listener>
+    <listener-class>example.MyGuiceServletConfig</listener-class>
+  </listener>
 
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
