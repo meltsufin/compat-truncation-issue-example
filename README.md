@@ -23,11 +23,11 @@ You should see someting like this:
 3: fetching https://example-project.appspot.com/hello?delay=2000
 4: fetching https://example-project.appspot.com/hello?delay=2000
 5: fetching https://example-project.appspot.com/hello?delay=2000
-HTTP/1.1 200 OK
-HTTP/1.1 404 Not Found
-HTTP/1.1 404 Not Found
-HTTP/1.1 404 Not Found
-HTTP/1.1 200 OK
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
 ```
 
 ## Local Test
@@ -35,7 +35,7 @@ HTTP/1.1 200 OK
 ```
 mvn jetty:run
 url=http://localhost:8080/hello?delay=2000
-./test_parallel.sh $url 3
+./test_parallel.sh $url 10
 ```
 
 You should see something like this:
@@ -44,7 +44,21 @@ You should see something like this:
 1: fetching http://localhost:8080/hello?delay=2000
 2: fetching http://localhost:8080/hello?delay=2000
 3: fetching http://localhost:8080/hello?delay=2000
+4: fetching http://localhost:8080/hello?delay=2000
+5: fetching http://localhost:8080/hello?delay=2000
+6: fetching http://localhost:8080/hello?delay=2000
+7: fetching http://localhost:8080/hello?delay=2000
+8: fetching http://localhost:8080/hello?delay=2000
+9: fetching http://localhost:8080/hello?delay=2000
+10: fetching http://localhost:8080/hello?delay=2000
 HTTP/1.1 200 OK
 HTTP/1.1 200 OK
-HTTP/1.1 404 Not Found
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
 ```
