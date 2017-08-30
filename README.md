@@ -12,7 +12,7 @@ git checkout qos
 mvn clean appengine:deploy
 project=[[your-gcp-project]]
 url=https://$project.appspot.com/hello?delay=2000
-./test_parallel.sh $url 5
+./test_parallel.sh $url 10
 ```
 
 You should see someting like this:
@@ -23,11 +23,22 @@ You should see someting like this:
 3: fetching https://example-project.appspot.com/hello?delay=2000
 4: fetching https://example-project.appspot.com/hello?delay=2000
 5: fetching https://example-project.appspot.com/hello?delay=2000
+6: fetching https://example-project.appspot.com/hello?delay=2000
+7: fetching https://example-project.appspot.com/hello?delay=2000
+8: fetching https://example-project.appspot.com/hello?delay=2000
+9: fetching https://example-project.appspot.com/hello?delay=2000
+10: fetching https://example-project.appspot.com/hello?delay=2000
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
 HTTP/1.1 503 Service Unavailable
 HTTP/1.1 503 Service Unavailable
 HTTP/1.1 503 Service Unavailable
 HTTP/1.1 503 Service Unavailable
-HTTP/1.1 503 Service Unavailable
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+
 ```
 
 ## Local Test
