@@ -1,7 +1,7 @@
 #FROM gcr.io/google_appengine/jetty9-compat:githubheadasync
 
 #FROM gcr.io/java-runtime-test/jetty9-compat:trace
-FROM  gcr.io/java-runtime-test/jetty9-compat:100-work-1000-queue
+FROM  gcr.io/java-runtime-test/jetty9-compat:api-call-retries-1.9.56
 
 ADD . $JETTY_BASE/webapps/root/
 
