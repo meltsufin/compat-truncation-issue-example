@@ -13,3 +13,16 @@ RUN rm -f $JETTY_BASE/webapps/root/WEB-INF/*quickstart-web.xml
 #RUN apt-get update
 #RUN apt-get -y remove openjdk-8-jre openjdk-8-jre-headless ca-certificates-java
 #RUN apt-get -y install -t jessie-backports openjdk-8-jdk-headless ca-certificates-java
+
+
+# pprof config
+RUN rm -rf /opt/cprof && mkdir /opt/cprof && cd /opt/cprof && \
+wget -qO- https://storage.googleapis.com/cloud-profiler/java/latest/profiler_java_agent.tar.gz | tar xzv
+RUN ls /opt/cprof
+
+ENV CPROF_OPTS $CPROF_OPTS,--cprof_delay_sec=60
+ENV CPROF_OPTS $CPROF_OPTS,--cprof_interval_sec=300
+ENV CPROF_OPTS $CPROF_OPTS,--cprof_duration_sec=30
+ENV CPROF_OPTS $CPROF_OPTS,--cprof_max_count=200
+ENV CPROF_OPTS $CPROF_OPTS,--cprof_profile_filename=/tmp/profile_
+ENV JAVA_OPTS -agentpath:/opt/cprof/profiler_java_agent.so=$CPROF_OPTS

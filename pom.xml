@@ -68,7 +68,7 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
-          <version>qos4</version>
+          <version>qos5</version>
           <stopPreviousVersion>true</stopPreviousVersion>
         </configuration>
       </plugin>
